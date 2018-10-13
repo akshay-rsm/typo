@@ -100,6 +100,11 @@ end
 # TODO: Add support for checkbox, select or option
 # based on naming conventions.
 #
+
+When(/^I delete the category with the Title "(.*?)"$/) do |title|
+  find('tr', text: title).click_link("Delete")
+end
+
 When /^(?:|I )fill in the following:$/ do |fields|
   fields.rows_hash.each do |name, value|
     When %{I fill in "#{name}" with "#{value}"}
